@@ -55,14 +55,14 @@ function ajax_load($options = array())
   $opacity = _get_option_value($options, "opacity", "0.85");
 
   $html = content_tag("div", null, array("id" => "ajax-load-background", "style" => "background-color: $background_color; opacity: $opacity"));
-  $html .= tag("div", array("id" => "ajax-load"), false);
+  $html .= tag("div", array("id" => "ajax-load"), true);
   $html .= content_tag("div", __($title), array("id" => "ajax-load-title"));
   if (_available_image($image))
     $html .= image_tag("/pmAjaxLoadPlugin/images/$image");
   else
     $html .= image_tag($image);
   $html .= content_tag("div", __($help), array("id" => "ajax-load-help"));
-  $html .= tag("/div", array(), false);
+  $html .= tag("/div", array(), true);
 
   $html .= javascript_tag("Event.observe(window, 'load', function() { $('ajax-load-background').hide(); $('ajax-load').hide(); });");
 
