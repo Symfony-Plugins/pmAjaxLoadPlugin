@@ -1,0 +1,33 @@
+= pmAjaxLoadPlugin =
+
+Displays an image while the page is loading.
+
+== Installation ==
+
+  * Install the plugin
+
+    {{{
+      svn export http://svn.symfony-project.com/plugins/pmAjaxLoadPlugin/trunk pmAjaxLoadPlugin
+    }}}
+
+  * Clear the cache
+
+    {{{
+      symfony cc
+    }}}
+
+  * Use it in a template
+
+    {{{
+      <?php use_helper("AjaxLoad") ?>
+
+      <?php ajax_load() // this uses the default settings ?>
+    }}}
+
+  * You can pass options to ajax_load functions, such as:
+
+    * title
+    * icon
+    * help
+    * background-color
+    * opacity

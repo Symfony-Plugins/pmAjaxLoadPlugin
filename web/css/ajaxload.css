@@ -1,0 +1,29 @@
+#ajax-load-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: none repeat scroll 0% 0%;
+  z-index: 4999;
+}
+
+#ajax-load {
+  position: fixed;
+  z-index: 5000;
+  top: 50%;
+  left: 43%;
+  text-align: center;
+}
+
+#ajax-load #ajax-load-title, #ajax-load #ajax-load-help {
+  color: #fff;
+}
+
+#ajax-load #ajax-load-title {
+  font-size: 16px;
+}
+
+#ajax-load #ajax-load-help {
+  font-size: 10px;
+}
