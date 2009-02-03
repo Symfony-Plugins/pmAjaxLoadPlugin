@@ -17,7 +17,7 @@ function _add_ajax_load_resources()
  *
  * @return string
  */
-function _get_option_value($options, $key, $default_value = null)
+function _get_ajax_load_option_value($options, $key, $default_value = null)
 {
   $value = $default_value;
   if (isset($options[$key]))
@@ -48,11 +48,11 @@ function ajax_load($options = array())
 {
   _add_ajax_load_resources();
 
-  $title = _get_option_value($options, "title", "Loading");
-  $image = _get_option_value($options, "image", "circle-ball.gif");
-  $help = _get_option_value($options, "help", "Please wait while the page is loading.");
-  $background_color = _get_option_value($options, "background-color", "#000");
-  $opacity = _get_option_value($options, "opacity", "0.85");
+  $title = _get_ajax_load_option_value($options, "title", "Loading");
+  $image = _get_ajax_load_option_value($options, "image", "circle-ball.gif");
+  $help = _get_ajax_load_option_value($options, "help", "Please wait while the page is loading.");
+  $background_color = _get_ajax_load_option_value($options, "background-color", "#000");
+  $opacity = _get_ajax_load_option_value($options, "opacity", "0.85");
 
   $html = content_tag("div", null, array("id" => "ajax-load-background", "style" => "background-color: $background_color; opacity: $opacity"));
   $html .= tag("div", array("id" => "ajax-load"), true);
