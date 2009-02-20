@@ -68,3 +68,30 @@ function ajax_load($options = array())
 
   return $html;
 }
+
+function ajax_unload($options = array())
+{
+  _add_ajax_load_resources();
+
+  $title = _get_ajax_load_option_value($options, "title", "Loading");
+  $image = _get_ajax_load_option_value($options, "image", "circle-ball.gif");
+  $help = _get_ajax_load_option_value($options, "help", "Please wait while the page is loading.");
+  $background_color = _get_ajax_load_option_value($options, "background-color", "#000");
+  $opacity = _get_ajax_load_option_value($options, "opacity", "0.85");
+  $submit_id = _get_ajax_load_option_value($options, "submit_id", null);
+
+  $html = content_tag("div", null, array("id" => "ajax-load-background", "style" => "display: none; background-color: $background_color; opacity: $opacity"));
+  $html .= tag("div", array("id" => "ajax-load", "style" => "display: none;"), true);
+  $html .= content_tag("div", __($title), array("id" => "ajax-load-title"));
+  if (_available_image($image))
+    $html .= image_tag("/pmAjaxLoadPlugin/images/$image");
+  else
+    $html .= image_tag($image);
+  $html .= content_tag("div", __($help), array("id" => "ajax-load-help"));
+  $html .= tag("/div", array(), true);
+
+  $html .= javascript_tag("$('$submit_id').observe('submit', function() { $('ajax-load-background').show(); $('ajax-load').show(); })");
+  $html .= javascript_tag("Event.observe(window, 'unload', function() { $('ajax-load-background').hide(); $('ajax-load').hide(); });");
+
+  return $html;
+}
