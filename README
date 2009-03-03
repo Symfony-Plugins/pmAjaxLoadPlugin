@@ -1,6 +1,6 @@
 = pmAjaxLoadPlugin =
 
-Displays an image while the page is loading.
+Displays an "ajax loading" image (that can be selected from a built-in set of images) and a message while the page is loading.
 
 == Installation ==
 
@@ -16,7 +16,7 @@ Displays an image while the page is loading.
       symfony cc
     }}}
 
-  * Use it in a template
+  * Use it in a template (or partial)
 
     {{{
       <?php use_helper("AjaxLoad") ?>
@@ -24,10 +24,25 @@ Displays an image while the page is loading.
       <?php ajax_load() // this uses the default settings ?>
     }}}
 
-  * You can pass options to ajax_load functions, such as:
+  * Options can be passed to ajax_load functions, such as:
 
     * title
-    * icon
+    * image
     * help
     * background-color
     * opacity
+
+    Examples:
+    {{{
+      <?php use_helper("AjaxLoad") ?>
+
+      <?php ajax_load(array("title" => "Loading page", "image" => "bert.gif")) ?>
+    }}}
+
+  * Built-in images
+
+    Built-in images can be found in %%sf_project_dir%%/plugins/pmAjaxLoadPlugin/web/images/
+
+  * Custom images
+
+    You can select a custom image to display, just specifying it's location
