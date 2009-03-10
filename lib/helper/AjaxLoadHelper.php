@@ -6,6 +6,7 @@
 function _add_ajax_load_resources()
 {
   $sf_response = sfContext::getInstance()->getResponse();
+  $sf_response->addJavascript("/sf/prototype/js/prototype");
   $sf_response->addStylesheet("/pmAjaxLoadPlugin/css/ajaxload.css");
 }
 
