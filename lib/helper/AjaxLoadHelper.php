@@ -47,6 +47,7 @@ function _available_image($image)
  */
 function ajax_load($options = array())
 {
+  use_helper("Javascript");
   _add_ajax_load_resources();
 
   $title = _get_ajax_load_option_value($options, "title", "Loading");
@@ -72,6 +73,7 @@ function ajax_load($options = array())
 
 function ajax_unload($options = array())
 {
+  use_helper("Javascript");
   _add_ajax_load_resources();
 
   $title = _get_ajax_load_option_value($options, "title", "Loading");
